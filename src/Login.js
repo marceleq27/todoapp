@@ -10,26 +10,23 @@ import Loader from "./components/Loader";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
   const user = useAuthUser(["user"], auth);
   const mutationLogout = useAuthSignOut(auth);
 
-  const mutation = useAuthSignInWithEmailAndPassword(auth, {
-    onError(error) {
-      setError(error);
-    },
-  });
+  const mutation = useAuthSignInWithEmailAndPassword(auth);
 
-  function onSignIn() {
+  const onSignIn = (e) => {
+    e.preventDefault();
     mutation.mutate({ email, password });
-  }
-  console.log(error);
+  };
   if (user.isLoading) return <Loader />;
   if (user.data && mutationLogout?.data) {
     return <Navigate to="/app" />;
   }
-
+  if (mutation?.isSuccess) {
+    return <Navigate to="/app" />;
+  }
   return (
     <section
       style={{
@@ -63,13 +60,14 @@ const Login = () => {
               labelText="Password"
             />
             <div style={{ display: "flex", marginTop: 32 }}>
-              <Button type="submit" style={{ marginRight: 16 }}>
+              <Button type="submit" style={{ marginRight: 16 }} disabled={mutation?.isLoading}>
                 Login
               </Button>
               <GoogleLoginButton auth={auth} kind="secondary">
                 Sign via Google
               </GoogleLoginButton>
             </div>
+            {mutation?.error && <p style={{ marginTop: 16 }}>{mutation?.error?.message}</p>}
           </form>
           <p style={{ marginTop: 24, fontSize: 14 }}>
             Don't have account? Sign in <Link to="/register">here</Link>.
