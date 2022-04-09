@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { Grid, Theme } from "@carbon/react";
+import Login from "./Login";
+import Register from "./Register";
+import TodoApp from "./TodoApp";
+import Helmet from "react-helmet";
+import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Theme theme="g90">
+      <Helmet>
+        <title>TodoApp</title>
+      </Helmet>
+      <Router>
+        <Grid condensed fullWidth style={{ minHeight: "100vh", backgroundColor: "#f4f4f4" }}>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/app" element={<TodoApp />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Grid>
+      </Router>
+    </Theme>
   );
-}
+};
 
 export default App;
