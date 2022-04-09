@@ -24,7 +24,7 @@ const Login = () => {
   function onSignIn() {
     mutation.mutate({ email, password });
   }
-
+  console.log(error);
   if (user.isLoading) return <Loader />;
   if (user.data && mutationLogout?.data) {
     return <Navigate to="/app" />;
