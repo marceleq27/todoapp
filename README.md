@@ -63,7 +63,9 @@ The build is minified and the filenames include the hashes.
 
 ### Deployment
 
-App is hosted on Microsoft Azure. Webapp will automatically rebuild and deploy files to Azure if you push commit to `master` branch. This will happen thanks to [Github Actions](https://github.com/features/actions). Normally it takes about 5-10 minutes.
+App is mainly hosted on Netlify. Webapp will automatically rebuild and deploy files to Netlify if you push commit to `master` branch. This will happen thanks to [Github Actions](https://github.com/features/actions). Normally it takes about 5-10 minutes.
+
+Hosting on Azure is currently not working due to problems on Azure platform.
 
 If you want to contribute, read instruction below.
 
