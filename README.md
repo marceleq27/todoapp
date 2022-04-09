@@ -4,7 +4,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 TodoApp is a simple project with CRUD actions, you can use this repo for experimenting.
 
-App is available at [https://todoappwsbmarcel.azurewebsites.net/](https://todoappwsbmarcel.azurewebsites.net/).
+App is available at:
+- [https://todoappwsbmarcel.azurewebsites.net/](https://todoappwsbmarcel.azurewebsites.net/)
+- [https:/todoappwsbmarcel.netlify.app](https:/todoappwsbmarcel.netlify.app)
 
 ## Features
 
