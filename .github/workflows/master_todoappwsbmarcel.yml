@@ -52,4 +52,4 @@ jobs:
           app-name: 'todoappwsbmarcel'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8F23A86810204D3BA8453F1B5C31EEF3 }}
-          package: .
+          package: build
