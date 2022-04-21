@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { Button, Column, TextInput, Theme } from "@carbon/react";
-import { useAuthCreateUserWithEmailAndPassword } from "@react-query-firebase/auth";
-import { auth } from "./config";
-import { Link, Navigate } from "react-router-dom";
+import { useState } from 'react';
+import { Button, Column, TextInput, Theme } from '@carbon/react';
+import { useAuthCreateUserWithEmailAndPassword } from '@react-query-firebase/auth';
+import { auth } from './config';
+import { Link, Navigate } from 'react-router-dom';
 
 const Register = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  console.log(auth);
   const mutation = useAuthCreateUserWithEmailAndPassword(auth);
 
   const onCreateUser = (e) => {
@@ -16,15 +16,15 @@ const Register = () => {
   };
 
   if (mutation.isSuccess) return <Navigate to="/app" />;
-  console.log(mutation);
+
   return (
     <section
       style={{
-        width: "calc(100vw - 32px)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100%",
+        width: 'calc(100vw - 32px)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100%',
       }}
     >
       <Theme theme="g10">
@@ -50,8 +50,12 @@ const Register = () => {
               disabled={mutation?.isLoading}
               required
             />
-            <div style={{ display: "flex", marginTop: 32 }}>
-              <Button style={{ marginRight: 16 }} disabled={mutation?.isLoading || mutation?.isSuccess} type="submit">
+            <div style={{ display: 'flex', marginTop: 32 }}>
+              <Button
+                style={{ marginRight: 16 }}
+                disabled={mutation?.isLoading || mutation?.isSuccess}
+                type="submit"
+              >
                 Register
               </Button>
               <Button as={Link} to="/" kind="secondary">
