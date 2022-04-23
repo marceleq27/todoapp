@@ -6,7 +6,7 @@ TodoApp is a simple project with CRUD actions, you can use this repo for experim
 
 App is available at:
 - [https://todoappwsbmarcel.azurewebsites.net/](https://todoappwsbmarcel.azurewebsites.net/)
-- [https:/todoappwsbmarcel.netlify.app](https:/todoappwsbmarcel.netlify.app)
+- [https://todoappwsbmarcel.netlify.app](https://todoappwsbmarcel.netlify.app)
 
 ## Features
 
